@@ -1,0 +1,208 @@
+/* chatwidgetcss.css */
+
+/* General Body Styling */
+/* Removed global body styling to prevent interference with host pages. */
+
+/* Chat Widget Container */
+.chat-widget {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 300px; /* Adjust width as needed */
+    height: 450px; /* Adjust height as needed */
+    background-color: #0E0E52; /* Deep navy blue */
+    color: #FFFFFF; /* Default text color within the widget */
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 1000;
+    font-family: 'Poppins', sans-serif; /* Apply font to widget */
+}
+
+/* Header Section */
+.chat-widget-header {
+    background-color: #0E0E52; /* Deep navy blue */
+    color: #FFFFFF; /* White */
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #4B32C3; /* Medium purple */
+}
+
+.chat-widget-header .title {
+    font-size: 1.1em;
+    font-weight: 600;
+}
+
+.chat-widget-header .close-button {
+    background: none;
+    border: none;
+    color: #FFFFFF; /* White */
+    font-size: 1.5em;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.chat-widget-header .close-button:hover {
+    color: #F9A825; /* Mustard yellow */
+}
+
+/* Chat Messages Area */
+.chat-widget-messages {
+    flex-grow: 1;
+    padding: 15px 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Message Styling */
+.message {
+    padding: 10px 15px;
+    border-radius: 8px;
+    max-width: 80%;
+    line-height: 1.4;
+    word-wrap: break-word;
+}
+
+.message.user {
+    background-color: #4B32C3; /* Medium purple */
+    color: #FFFFFF; /* White */
+    align-self: flex-end;
+    border-bottom-right-radius: 2px;
+}
+
+.message.bot {
+    background-color: #FFFFFF; /* White */
+    color: #0E0E52; /* Deep navy blue - Confirmed readability against white background */
+    align-self: flex-start;
+    border-bottom-left-radius: 2px;
+    position: relative;
+    padding-left: 25px; /* Space for bot icon */
+}
+
+.message.bot::before {
+    content: '?'; /* Placeholder for bot avatar/icon - can be an img tag or icon font */
+    position: absolute;
+    left: 8px;
+    top: 8px;
+    font-size: 1.2em;
+}
+
+/* Input Area */
+.chat-widget-input-area {
+    background-color: #FFFFFF; /* White */
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    border-top: 1px solid #0D47A1; /* Deep blue tone */
+}
+
+.chat-widget-input {
+    flex-grow: 1;
+    padding: 10px 15px;
+    border: 1px solid #0D47A1; /* Deep blue tone */
+    border-radius: 5px;
+    margin-right: 10px;
+    font-size: 0.95em;
+    color: #0E0E52; /* Deep navy blue */
+    background-color: #FFFFFF;
+}
+
+.chat-widget-input::placeholder {
+    color: #999; /* Lighter gray for placeholder */
+}
+
+.chat-widget-send-button {
+    background-color: #F9A825; /* Mustard yellow */
+    color: #FFFFFF; /* White */
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.chat-widget-send-button:hover {
+    background-color: #2E1CA1; /* Slightly darker purple/blue tone */
+    transform: scale(1.05);
+}
+
+/* Floating Action Button (FAB) to open the widget */
+.chat-widget-fab {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: #00D1CF; /* Bright cyan accent */
+    color: #FFFFFF;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    font-size: 2em;
+    z-index: 999;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.chat-widget-fab:hover {
+    background-color: #F9A825; /* Mustard yellow on hover */
+    transform: rotate(15deg) scale(1.1);
+}
+
+/* Hide FAB when widget is open */
+.chat-widget-fab.hidden {
+    display: none;
+}
+
+/* Styling for initial loading or greeting message */
+.chat-widget-messages .greeting {
+    text-align: center;
+    color: #FFFFFF;
+    font-size: 0.9em;
+    margin-top: 20px;
+}
+
+/* Scrollbar styling (optional, for custom look) */
+.chat-widget-messages::-webkit-scrollbar {
+    width: 8px;
+}
+
+.chat-widget-messages::-webkit-scrollbar-track {
+    background: #0E0E52; /* Deep navy blue */
+    border-radius: 10px;
+}
+
+.chat-widget-messages::-webkit-scrollbar-thumb {
+    background: #4B32C3; /* Medium purple */
+    border-radius: 10px;
+}
+
+.chat-widget-messages::-webkit-scrollbar-thumb:hover {
+    background: #2E1CA1; /* Slightly darker purple/blue tone */
+}
+
+/* Animation for incoming messages */
+.message.bot.fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
