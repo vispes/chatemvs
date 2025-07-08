@@ -1,0 +1,189 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #FFFFFF;
+  color: #0E0E52;
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+h1 {
+  color: #0E0E52;
+  margin-bottom: 30px;
+  font-size: 2.5em;
+}
+
+.options-container {
+  background-color: #FFFFFF;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  width: 80%;
+  max-width: 600px;
+  text-align: left;
+}
+
+.option-section {
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #E0E0E0;
+}
+
+.option-section:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+label {
+  font-weight: 600;
+  margin-bottom: 15px;
+  display: block;
+  color: #0E0E52;
+  font-size: 1.1em;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+  width: 100%;
+  padding: 12px 12px;
+  margin-top: 5px;
+  border: 1px solid #CCCCCC;
+  border-radius: 5px;
+  font-size: 1em;
+  box-sizing: border-box;
+  color: #333333;
+}
+
+input[type="checkbox"] {
+  margin-right: 10px;
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  color: #0E0E52;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+button {
+  background-color: #4B32C3;
+  color: #FFFFFF;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.1em;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+}
+
+button:hover {
+  background-color: #2E1CA1;
+}
+
+.save-button {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+.status-message {
+  margin-top: 15px;
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.status-message.success {
+  background-color: #e0ffe0;
+  color: #006400;
+  border: 1px solid #006400;
+}
+
+.status-message.error {
+  background-color: #ffe0e0;
+  color: #8b0000;
+  border: 1px solid #8b0000;
+}
+
+/* Placeholder for potential future theme customization */
+.theme-color-picker {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.theme-color-picker label {
+  margin-bottom: 0;
+}
+
+.theme-color-picker input[type="color"] {
+  padding: 0;
+  height: 30px;
+  width: 50px;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+/* Accessibility enhancements */
+input:focus,
+select:focus,
+button:focus {
+  outline: 2px solid #4B32C3;
+  outline-offset: 2px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .options-container {
+    width: 95%;
+    padding: 30px;
+  }
+
+  h1 {
+    font-size: 2em;
+  }
+
+  button {
+    font-size: 1em;
+    padding: 10px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .options-container {
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 1.8em;
+  }
+
+  label {
+    font-size: 1em;
+  }
+
+  input[type="text"],
+  input[type="number"],
+  select {
+    font-size: 0.95em;
+  }
+
+  button {
+    font-size: 1em;
+    width: 100%;
+  }
+}
