@@ -1,0 +1,262 @@
+/* chatwidget.css */
+
+/* Global Styles and Variables */
+:root {
+  --primary-blue: #0E0E52;
+  --accent-purple: #4B32C3;
+  --highlight-yellow: #F9A825;
+  --white: #FFFFFF;
+  --cyan-accent: #00D1CF;
+  --mid-blue-accent: #0D47A1;
+  --button-hover-blue: #2E1CA1;
+  --font-family: 'Poppins', 'Montserrat', 'Nunito', sans-serif;
+}
+
+/* Basic Reset for Consistency */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Chat Widget Container */
+.chat-widget {
+  width: 400px; /* Example width, adjust as needed */
+  height: 600px; /* Example height, adjust as needed */
+  background-color: var(--primary-blue);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative; /* For potential absolute positioning of decorative elements */
+  font-family: var(--font-family); /* Apply font family to the widget */
+  color: var(--white); /* Default text color for the widget */
+  line-height: 1.6; /* Default line height */
+}
+
+/* Header Section */
+.chat-header {
+  background-color: var(--primary-blue);
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.chat-header .chat-title {
+  font-size: 1.4em;
+  font-weight: 600;
+  color: var(--white);
+}
+
+.chat-header .close-button {
+  background: none;
+  border: none;
+  color: var(--white);
+  font-size: 1.8em;
+  cursor: pointer;
+  transition: color 0.2s ease-in-out;
+}
+
+.chat-header .close-button:hover {
+  color: var(--highlight-yellow);
+}
+
+/* Chat Body (Message Area) */
+.chat-body {
+  flex-grow: 1;
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Spacing between messages */
+}
+
+.chat-body::-webkit-scrollbar {
+  width: 8px;
+}
+
+.chat-body::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+}
+
+.chat-body::-webkit-scrollbar-thumb {
+  background: var(--accent-purple);
+  border-radius: 4px;
+}
+
+.chat-body::-webkit-scrollbar-thumb:hover {
+  background: var(--button-hover-blue);
+}
+
+/* Message Styles */
+.message {
+  display: flex;
+  flex-direction: column;
+  max-width: 80%;
+  padding: 10px 15px;
+  border-radius: 8px;
+  word-wrap: break-word; /* Ensure long words break */
+}
+
+.message.user {
+  align-self: flex-end;
+  background-color: var(--accent-purple);
+  border-bottom-right-radius: 0; /* Creates a speech bubble effect */
+}
+
+.message.bot {
+  align-self: flex-start;
+  background-color: var(--mid-blue-accent); /* Using mid-blue for bot messages */
+  border-bottom-left-radius: 0; /* Creates a speech bubble effect */
+}
+
+.message-content {
+  font-size: 0.95em;
+  color: var(--white);
+}
+
+.message-timestamp {
+  font-size: 0.7em;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 5px;
+  align-self: flex-end; /* Timestamps aligned to the end of the message bubble */
+}
+
+.message.bot .message-timestamp {
+  align-self: flex-start;
+}
+
+/* Input Area */
+.chat-input-area {
+  display: flex;
+  padding: 15px 20px;
+  background-color: var(--primary-blue);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  align-items: center;
+  gap: 10px;
+}
+
+.chat-input-area input[type="text"] {
+  flex-grow: 1;
+  padding: 12px 15px;
+  border: none;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.08);
+  color: var(--white);
+  font-family: var(--font-family);
+  font-size: 0.9em;
+  outline: none;
+  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.chat-input-area input[type="text"]:focus {
+  border-color: var(--accent-purple);
+  box-shadow: 0 0 0 3px rgba(75, 50, 195, 0.3);
+}
+
+.chat-input-area .send-button {
+  background-color: var(--accent-purple);
+  color: var(--white);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.2em;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+}
+
+.chat-input-area .send-button:hover {
+  background-color: var(--button-hover-blue);
+  transform: scale(1.05);
+}
+
+.chat-input-area .send-button:active {
+  transform: scale(0.98);
+}
+
+/* Optional: Decorative elements */
+.chat-widget::before,
+.chat-widget::after {
+  content: '';
+  position: absolute;
+  z-index: 0; /* Behind content */
+  opacity: 0.4;
+}
+
+/* Cyan/Aqua Shape Accent */
+.chat-widget::before {
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, var(--cyan-accent) 0%, transparent 70%);
+  top: -50px;
+  left: -50px;
+  border-radius: 50%;
+}
+
+/* Mid Blue Shape Accent */
+.chat-widget::after {
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, var(--mid-blue-accent) 0%, transparent 70%);
+  bottom: -80px;
+  right: -80px;
+  border-radius: 50%;
+}
+
+/* Ensure chat content is above decorative elements */
+.chat-header,
+.chat-body,
+.chat-input-area {
+  position: relative;
+  z-index: 1;
+}
+
+/* Loading Indicator (Example) */
+.loading-indicator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  color: var(--accent-purple);
+  font-style: italic;
+}
+
+/* Button Styles (for general use if needed) */
+.btn {
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-family: var(--font-family);
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  border: none;
+  outline: none;
+}
+
+.btn-primary {
+  background-color: var(--accent-purple);
+  color: var(--white);
+}
+
+.btn-primary:hover {
+  background-color: var(--button-hover-blue);
+}
+
+.btn-secondary {
+  background-color: var(--highlight-yellow);
+  color: var(--primary-blue);
+}
+
+.btn-secondary:hover {
+  background-color: #e0951d; /* Darker yellow for hover */
+}
