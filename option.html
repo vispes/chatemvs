@@ -1,0 +1,163 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatEm Options</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #FFFFFF;
+            color: #0E0E52;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+        .options-container {
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            width: 100%;
+            max-width: 600px;
+            text-align: center;
+        }
+        h1 {
+            color: #0E0E52;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+        .setting-group {
+            margin-bottom: 25px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+            padding-bottom: 20px;
+        }
+        .setting-group:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #0E0E52;
+        }
+        input[type="text"],
+        input[type="number"],
+        select,
+        textarea {
+            width: calc(100% - 20px);
+            padding: 12px 10px;
+            margin-bottom: 15px;
+            border: 1px solid #cccccc;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            box-sizing: border-box;
+        }
+        input[type="checkbox"] {
+            margin-right: 10px;
+            transform: scale(1.2);
+            accent-color: #4B32C3;
+        }
+        .checkbox-label {
+            display: inline-flex;
+            align-items: center;
+            font-weight: 400;
+            color: #0E0E52;
+            cursor: pointer;
+        }
+        button {
+            background-color: #4B32C3;
+            color: #FFFFFF;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #2E1CA1;
+        }
+        .save-button-container {
+            margin-top: 30px;
+        }
+        .notification-message {
+            margin-top: 15px;
+            font-size: 0.9rem;
+            color: #28a745;
+            font-weight: 600;
+        }
+        .error-message {
+            margin-top: 15px;
+            font-size: 0.9rem;
+            color: #dc3545;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="options-container">
+        <h1>ChatEm Settings</h1>
+
+        <div class="setting-group">
+            <label for="apiKey">API Key:</label>
+            <input type="text" id="apiKey" placeholder="Enter your API key">
+        </div>
+
+        <div class="setting-group">
+            <label for="modelSelect">AI Model:</label>
+            <select id="modelSelect">
+                <option value="gpt-3.5-turbo">GPT-3.5 Turbo</option>
+                <option value="gpt-4">GPT-4</option>
+                <option value="gemini-pro">Gemini Pro</option>
+                <option value="claude-3-opus-20240229">Claude 3 Opus</option>
+                <option value="claude-3-sonnet-20240229">Claude 3 Sonnet</option>
+                <option value="claude-3-haiku-20240307">Claude 3 Haiku</option>
+            </select>
+        </div>
+
+        <div class="setting-group">
+            <label for="defaultPrompt">Default Prompt:</label>
+            <textarea id="defaultPrompt" rows="4" placeholder="Enter your default prompt for AI interaction"></textarea>
+        </div>
+
+        <div class="setting-group">
+            <label for="enableNotifications">Enable Notifications:</label>
+            <label class="checkbox-label">
+                <input type="checkbox" id="enableNotifications">
+                Receive alerts for new messages
+            </label>
+        </div>
+
+        <div class="setting-group">
+            <label for="maxTokens">Max Tokens:</label>
+            <input type="number" id="maxTokens" min="50" max="4096" placeholder="e.g., 1024">
+        </div>
+
+        <div class="setting-group">
+            <label for="temperature">Temperature (0.0 - 1.0):</label>
+            <input type="number" id="temperature" step="0.1" min="0.0" max="1.0" placeholder="e.g., 0.7">
+        </div>
+
+        <div class="save-button-container">
+            <button id="saveButton">Save Settings</button>
+        </div>
+
+        <div id="statusMessage" class="notification-message"></div>
+        <div id="errorMessage" class="error-message"></div>
+    </div>
+
+    <script src="options.js"></script>
+</body>
+</html>
